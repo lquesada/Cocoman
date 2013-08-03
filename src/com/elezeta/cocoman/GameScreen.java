@@ -57,7 +57,6 @@ class GameScreen extends JPanel {
 
   
   public void setPause() {
-	  System.out.println("YEAH");
     if ((game.deaduntil>game.stepnum) || (game.gameover) || (game.youwin))
       return;
     game.pause = !game.pause;
