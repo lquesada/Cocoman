@@ -10,7 +10,7 @@ import java.util.Random;
 public class Cocoman {
 
     
-    JFrame comecocosFrame;
+    JFrame cocomanFrame;
 
     
     JPanel buttonPanel;
@@ -19,39 +19,39 @@ public class Cocoman {
     JPanel barPanel;
 
     
-    JLabel estadoLabel;
+    JLabel statusLabel;
 
     
-    JButton nuevoButton;
+    JButton newGameButton;
 
     
-    JButton salirButton;
+    JButton exitButton;
 
     
-    GameScreen pantalla;
+    GameScreen screen;
 
     
     public Cocoman() {
         //Creamos y configuramos la ventana.
-        comecocosFrame = new JFrame("Cocoman");
-        comecocosFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        comecocosFrame.setDefaultLookAndFeelDecorated(false); 
-        comecocosFrame.setResizable(false);
+        cocomanFrame = new JFrame("Cocoman");
+        cocomanFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        cocomanFrame.setDefaultLookAndFeelDecorated(false); 
+        cocomanFrame.setResizable(false);
 
         //Creamos y configuramos los paneles.
         buttonPanel = new JPanel(new GridLayout(1,2));
         barPanel = new JPanel(new GridLayout(2,1));
 
         //Creamos los componentes.
-        nuevoButton = new JButton("New Game");
-        salirButton = new JButton("Exit");
-        estadoLabel = new JLabel("Welcome to Cocoman!", SwingConstants.LEFT);
-        pantalla = new GameScreen(estadoLabel); //Pasamos la label a pantalla para que pueda cambiar su contenido.
+        newGameButton = new JButton("New Game");
+        exitButton = new JButton("Exit");
+        statusLabel = new JLabel("Welcome to Cocoman!", SwingConstants.LEFT);
+        screen = new GameScreen(statusLabel); //Pasamos la label a pantalla para que pueda cambiar su contenido.
 
         //Escuchamos los eventos de los botones.
         ActionListener actionListenerNUEVO = new ActionListener() {
           public void actionPerformed(ActionEvent actionEvent) {
-            pantalla.newGame();
+            screen.newGame();
           }
         };
 
@@ -61,67 +61,67 @@ public class Cocoman {
           }
         };
 
-        nuevoButton.addActionListener(actionListenerNUEVO);
-        salirButton.addActionListener(actionListenerSALIR);
+        newGameButton.addActionListener(actionListenerNUEVO);
+        exitButton.addActionListener(actionListenerSALIR);
 
         //Escuchamos los eventos del teclado.
         ActionListener actionListenerLEFT = new ActionListener() {
           public void actionPerformed(ActionEvent actionEvent) {
-            pantalla.setHeading('<',true);
+            screen.setHeading('<',true);
           }
         };
 
         ActionListener actionListenerRIGHT = new ActionListener() {
           public void actionPerformed(ActionEvent actionEvent) {
-            pantalla.setHeading('>',true);
+            screen.setHeading('>',true);
           }
         };
 
         ActionListener actionListenerUP = new ActionListener() {
           public void actionPerformed(ActionEvent actionEvent) {
-            pantalla.setHeading('^',true);
+            screen.setHeading('^',true);
           }
         };
 
         ActionListener actionListenerDOWN = new ActionListener() {
           public void actionPerformed(ActionEvent actionEvent) {
-            pantalla.setHeading('V',true);
+            screen.setHeading('V',true);
           }
         };
 
         ActionListener actionListenerPAUSA = new ActionListener() {
           public void actionPerformed(ActionEvent actionEvent) {
-            pantalla.setPause();
+            screen.setPause();
           }
         };
 
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerLEFT, KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerLEFT, KeyStroke.getKeyStroke(KeyEvent.VK_A, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerRIGHT, KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerRIGHT, KeyStroke.getKeyStroke(KeyEvent.VK_D, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerUP, KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerUP, KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerDOWN, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerDOWN, KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
-        comecocosFrame.getRootPane().registerKeyboardAction(actionListenerPAUSA, KeyStroke.getKeyStroke(KeyEvent.VK_P, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerLEFT, KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerLEFT, KeyStroke.getKeyStroke(KeyEvent.VK_A, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerRIGHT, KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerRIGHT, KeyStroke.getKeyStroke(KeyEvent.VK_D, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerUP, KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerUP, KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerDOWN, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerDOWN, KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+        cocomanFrame.getRootPane().registerKeyboardAction(actionListenerPAUSA, KeyStroke.getKeyStroke(KeyEvent.VK_P, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
 
         //Añadimos los componentes a los paneles.
-        buttonPanel.add(nuevoButton);
-        buttonPanel.add(salirButton);
+        buttonPanel.add(newGameButton);
+        buttonPanel.add(exitButton);
         barPanel.add(buttonPanel);
-        barPanel.add(estadoLabel);
-        comecocosFrame.getContentPane().add(pantalla,BorderLayout.CENTER);
-        comecocosFrame.getContentPane().add(barPanel,BorderLayout.NORTH);
+        barPanel.add(statusLabel);
+        cocomanFrame.getContentPane().add(screen,BorderLayout.CENTER);
+        cocomanFrame.getContentPane().add(barPanel,BorderLayout.NORTH);
 
         //Mostramos la ventana.
-        comecocosFrame.pack();
-        pantalla.repaint();
-        comecocosFrame.setVisible(true);
+        cocomanFrame.pack();
+        screen.repaint();
+        cocomanFrame.setVisible(true);
 
         //Lanzamos el Timer que se encarga de actualizar el juego.
         ActionListener taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-               pantalla.run();
+               screen.run();
             }
         };
         new Timer(50, taskPerformer).start();
