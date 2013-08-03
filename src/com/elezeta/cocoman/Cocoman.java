@@ -1,3 +1,4 @@
+package com.elezeta.cocoman;
 /**
 * @file Comecocos.java
 * @brief Fichero implementación del programa Comecocos.
@@ -16,7 +17,7 @@ import java.util.Random;
 * Dentro de la interfaz gráfica se encuentran los botones y los manejadores,
 * y luego la PantallaComecocos, que contiene la pantalla del juego en sí.
 */
-public class Comecocos {
+public class Cocoman {
 
     /**
     * @brief Frame principal.
@@ -58,7 +59,7 @@ public class Comecocos {
     *
     * Lanza la interfaz gráfica, los listeners, y el timer que actualiza el juego.
     */
-    public Comecocos() {
+    public Cocoman() {
         //Creamos y configuramos la ventana.
         comecocosFrame = new JFrame("Comecocos");
         comecocosFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -156,7 +157,7 @@ public class Comecocos {
     * Esto se hace así para mantener la seguridad entre hebras.
     */
     private static void createAndShowGUI() {
-        Comecocos comecocos = new Comecocos();
+        Cocoman comecocos = new Cocoman();
     }
 
     /**
